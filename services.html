@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos services — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Nos expertises</span>
+      <h1>Nos services</h1>
+      <p>Une offre complète pour l'installation, l'entretien et la sécurisation de vos réseaux électriques.</p>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Nos services</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3" id="allServices"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="card text-center reveal" style="padding:48px;">
+        <h2>Besoin d'un devis personnalisé ?</h2>
+        <p style="max-width:520px;margin:0 auto 20px;">Décrivez votre besoin, nous vous répondons gratuitement et sans engagement sous 24h.</p>
+        <a href="commande-service.html" class="btn btn-primary">Demander un devis gratuit</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const host = document.getElementById('allServices');
+  host.innerHTML = SERVICES_LIST.map(s => `
+    <div class="card service-card reveal">
+      <div class="icon">${ICONS[s.icon] || ICONS.bolt}</div>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <a href="commande-service.html?service=${s.id}" class="btn btn-outline btn-sm">Commander ce service</a>
+    </div>
+  `).join('');
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view')), 50);
+});
+</script>
+</body>
+</html>

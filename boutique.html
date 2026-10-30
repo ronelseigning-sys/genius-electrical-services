@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boutique — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Boutique</span>
+      <h1>Matériel électrique</h1>
+      <p>Câbles, disjoncteurs, prises, panneaux solaires et bien plus — livrés partout au Cameroun.</p>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Boutique</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="shop-toolbar">
+        <div class="filter-chips" id="filterChips"></div>
+        <div class="flex gap-12" style="align-items:center;">
+          <span class="small muted" id="resultCount"></span>
+          <select id="sortSelect" style="width:auto;padding:8px 12px;">
+            <option value="default">Trier par défaut</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="name">Nom (A–Z)</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid grid-4" id="productsGrid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/boutique.js"></script>
+</body>
+</html>

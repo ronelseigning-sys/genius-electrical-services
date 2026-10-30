@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer un compte — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="section" style="padding-top:56px;">
+    <div class="container auth-shell">
+      <div class="text-center mb-24">
+        <span class="eyebrow">Nouveau client</span>
+        <h1 style="font-size:1.8rem;">Créer un compte</h1>
+        <p>Créez votre compte pour suivre vos commandes et demandes de service.</p>
+      </div>
+      <div class="auth-card">
+        <div class="form-error-banner" id="formError"></div>
+        <form id="signupForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" required>
+              <div class="field-error" id="err-nom"></div>
+            </div>
+            <div class="form-group">
+              <label for="prenom">Prénom *</label>
+              <input type="text" id="prenom" required>
+              <div class="field-error" id="err-prenom"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telephone">Téléphone *</label>
+              <input type="tel" id="telephone" placeholder="6XXXXXXXX" required>
+              <div class="field-error" id="err-telephone"></div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" required>
+              <div class="field-error" id="err-email"></div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ville">Ville *</label>
+              <input type="text" id="ville" required>
+              <div class="field-error" id="err-ville"></div>
+            </div>
+            <div class="form-group">
+              <label for="quartier">Quartier *</label>
+              <input type="text" id="quartier" required>
+              <div class="field-error" id="err-quartier"></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="adresse">Adresse *</label>
+            <input type="text" id="adresse" required>
+            <div class="field-error" id="err-adresse"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Mot de passe *</label>
+            <div class="password-wrap">
+              <input type="password" id="password" required>
+              <button type="button" data-target="password">Afficher</button>
+            </div>
+            <div class="field-error" id="err-password"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirmer le mot de passe *</label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPassword" required>
+              <button type="button" data-target="confirmPassword">Afficher</button>
+            </div>
+            <div class="field-error" id="err-confirmPassword"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Créer mon compte</button>
+        </form>
+        <p class="small text-center" style="margin-top:18px;">
+          Déjà client ? <a href="connexion.html" style="color:var(--navy-900);font-weight:600;">Se connecter</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

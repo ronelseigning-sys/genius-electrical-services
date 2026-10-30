@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Assistance client — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Assistance client</span>
+      <h1>Comment pouvons-nous vous aider ?</h1>
+      <p>Notre équipe est disponible pour répondre à vos questions et vous accompagner dans vos démarches.</p>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Assistance</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="margin-bottom:48px;">
+        <div class="card text-center reveal">
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="chatIcon"></div>
+          <h3>Discuter en direct</h3>
+          <p>Posez votre question à notre service client via le chat en ligne.</p>
+          <button class="btn btn-primary" id="startChatBtn">Démarrer une discussion</button>
+        </div>
+        <div class="card text-center reveal">
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="waIcon"></div>
+          <h3>WhatsApp</h3>
+          <p>Contactez-nous directement sur WhatsApp pour une réponse rapide.</p>
+          <a class="btn btn-dark" id="waLink" href="https://wa.me/237673074387?text=Bonjour%20Genius%20Electrical%20Service%2C%20j%27ai%20besoin%20d%27une%20assistance." target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+        </div>
+</div>
+
+      <div class="card" style="max-width:640px;margin:0 auto;">
+        <h3>Envoyer une demande d'assistance</h3>
+        <div class="form-success-banner" id="assistSuccess"></div>
+        <form id="assistForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="a-nom">Nom complet *</label>
+              <input type="text" id="a-nom" required>
+              <div class="field-error" id="err-a-nom"></div>
+            </div>
+            <div class="form-group">
+              <label for="a-email">Email *</label>
+              <input type="email" id="a-email" required>
+              <div class="field-error" id="err-a-email"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="a-message">Votre question *</label>
+            <textarea id="a-message" placeholder="Décrivez votre besoin d'assistance…" required></textarea>
+            <div class="field-error" id="err-a-message"></div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Envoyer la demande</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/assistance.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Contactez-nous</h1>
+      <p>Une question, un projet ? Notre équipe vous répond rapidement.</p>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Contact</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid" style="grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;">
+        <div class="card">
+          <h3>Envoyer un message</h3>
+          <div class="form-success-banner" id="contactSuccess"></div>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-nom">Nom complet *</label>
+                <input type="text" id="c-nom" required>
+                <div class="field-error" id="err-c-nom"></div>
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email *</label>
+                <input type="email" id="c-email" required>
+                <div class="field-error" id="err-c-email"></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-sujet">Sujet</label>
+              <input type="text" id="c-sujet">
+            </div>
+            <div class="form-group">
+              <label for="c-message">Message *</label>
+              <textarea id="c-message" required></textarea>
+              <div class="field-error" id="err-c-message"></div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Envoyer le message</button>
+          </form>
+        </div>
+
+        <div>
+          <div class="card" style="margin-bottom:20px;">
+            <h3>Nos coordonnées</h3>
+            <p class="small" style="margin-bottom:6px;"><strong>Adresse :</strong> Akwa, Douala, Cameroun</p>
+            <p class="small" style="margin-bottom:6px;"><strong>WhatsApp :</strong> <a href="https://wa.me/237673074387" target="_blank" rel="noopener">+237 673 074 387</a></p>
+            <p class="small" style="margin-bottom:6px;"><strong>Email :</strong> thegeniusservice@gmail.com</p>
+            <p class="small" style="margin-bottom:0;"><strong>Horaires :</strong> Lun–Sam · 7h30–18h30 (Urgences 24h/24)</p>
+          </div>
+          <div class="card" style="padding:0;overflow:hidden;">
+            <div style="aspect-ratio:16/10;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;color:var(--text-muted);text-align:center;padding:20px;">
+              Carte Google Maps<br>(intégrable lors de l'hébergement)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

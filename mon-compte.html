@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon compte — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Espace client</span>
+      <h1 id="welcomeTitle">Mon compte</h1>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / Mon compte</div>
+    </div>
+  </section>
+
+  <section class="section" id="accountSection">
+    <div class="container">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="infos">Mon profil</button>
+        <button class="tab-btn" data-tab="commandes">Mes commandes</button>
+        <button class="tab-btn" data-tab="factures">Mes factures</button>
+        <button class="tab-btn" data-tab="services">Mes demandes de services</button>
+      </div>
+
+      <div class="tab-pane active" id="tab-infos">
+        <div class="card" style="max-width:600px;">
+          <div class="form-success-banner" id="profileSuccess"></div>
+          <form id="profileForm">
+            <div class="form-row">
+              <div class="form-group"><label for="p-nom">Nom</label><input type="text" id="p-nom" required></div>
+              <div class="form-group"><label for="p-prenom">Prénom</label><input type="text" id="p-prenom" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="p-telephone">Téléphone</label><input type="tel" id="p-telephone" required></div>
+              <div class="form-group"><label for="p-email">Email</label><input type="email" id="p-email" required></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="p-ville">Ville</label><input type="text" id="p-ville" required></div>
+              <div class="form-group"><label for="p-quartier">Quartier</label><input type="text" id="p-quartier" required></div>
+            </div>
+            <div class="form-group"><label for="p-adresse">Adresse</label><input type="text" id="p-adresse" required></div>
+            <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
+          </form>
+        </div>
+        <div class="flex gap-12" style="margin-top:24px;flex-wrap:wrap;">
+          <a href="panier.html" class="btn btn-outline">Mon panier</a>
+          <a href="assistance.html" class="btn btn-outline">Assistance</a>
+          <button class="btn btn-dark" id="logoutBtn">Se déconnecter</button>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="tab-commandes">
+        <div id="ordersList"></div>
+      </div>
+
+      <div class="tab-pane" id="tab-factures">
+        <div id="invoicesList"></div>
+      </div>
+
+      <div class="tab-pane" id="tab-services">
+        <div id="requestsList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="loggedOutSection" style="display:none;">
+    <div class="container text-center">
+      <div class="card" style="max-width:480px;margin:0 auto;padding:48px;">
+        <span id="loggedOutIcon"></span>
+        <h2>Vous n'êtes pas connecté</h2>
+        <p>Connectez-vous ou créez un compte pour accéder à votre espace client.</p>
+        <div class="flex gap-12" style="justify-content:center;">
+          <a href="connexion.html" class="btn btn-primary">Se connecter</a>
+          <a href="inscription.html" class="btn btn-outline">Créer un compte</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/compte.js"></script>
+</body>
+</html>

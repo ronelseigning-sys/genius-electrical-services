@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Notre entreprise</span>
+      <h1>À propos de Genius Electrical Service</h1>
+      <div class="breadcrumb"><a href="index.html">Accueil</a> / À propos</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:center;gap:48px;">
+        <div>
+          <span class="eyebrow">Notre histoire</span>
+          <h2>Une expertise construite sur le terrain</h2>
+          <p>Fondée par des électriciens passionnés, Genius Electrical Service accompagne depuis plus de 12 ans les particuliers et les entreprises dans tous leurs projets électriques — de la simple réparation à l'installation solaire complète.</p>
+          <p>Au fil des années, notre équipe s'est spécialisée dans la sécurité électrique, l'énergie renouvelable et les solutions connectées, tout en gardant une exigence constante : la sécurité et la satisfaction de nos clients.</p>
+        </div>
+        <div class="card reveal" style="padding:0;overflow:hidden;">
+          <div style="aspect-ratio:4/3;background:var(--navy-900);display:flex;align-items:center;justify-content:center;">
+            <span style="width:70px;height:70px;color:var(--yellow);" id="aboutBolt"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="card reveal">
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="missionIcon"></div>
+          <h3>Notre mission</h3>
+          <p>Offrir à chaque client une électricité sûre, fiable et durable, avec un service rapide et transparent.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="visionIcon"></div>
+          <h3>Notre vision</h3>
+          <p>Devenir la référence régionale de l'installation électrique et des solutions d'énergie solaire.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="valuesIcon"></div>
+          <h3>Nos valeurs</h3>
+          <p>Sécurité, intégrité, ponctualité et amélioration continue guident chacune de nos interventions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container text-center">
+      <h2>Rejoignez nos clients satisfaits</h2>
+      <p style="max-width:520px;margin:0 auto 20px;">Faites confiance à une équipe expérimentée pour votre prochain projet électrique.</p>
+      <a href="commande-service.html" class="btn btn-primary">Demander un devis gratuit</a>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('aboutBolt').innerHTML = ICONS.bolt;
+  document.getElementById('missionIcon').innerHTML = ICONS.check;
+  document.getElementById('visionIcon').innerHTML = ICONS.star;
+  document.getElementById('valuesIcon').innerHTML = ICONS.shield;
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('in-view')), 50);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord admin — Genius Electrical Service</title>
+<link rel="stylesheet" href="css/style.css">
+<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<main>
+  <section class="page-hero" style="padding:36px 0;">
+    <div class="container">
+      <span class="eyebrow">Accès interne</span>
+      <h1 style="font-size:1.8rem;">Tableau de bord administrateur</h1>
+      <p class="small">Vue locale des données (Local Storage) — à connecter à votre base de données.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="admin-layout">
+      <aside class="admin-side">
+        <button class="active" data-panel="apercu">Aperçu</button>
+        <button data-panel="inscriptions">Inscriptions</button>
+        <button data-panel="commandes">Commandes</button>
+        <button data-panel="factures">Factures</button>
+        <button data-panel="demandes">Demandes de service</button>
+        <button data-panel="messages">Messages de contact</button>
+      </aside>
+      <div class="admin-main">
+        <div class="admin-kpis">
+          <div class="kpi-card"><div class="n" id="kpiUsers">0</div><div class="l">Clients inscrits</div></div>
+          <div class="kpi-card"><div class="n" id="kpiOrders">0</div><div class="l">Commandes boutique</div></div>
+          <div class="kpi-card"><div class="n" id="kpiRequests">0</div><div class="l">Demandes de service</div></div>
+          <div class="kpi-card"><div class="n" id="kpiMessages">0</div><div class="l">Messages de contact</div></div>
+        </div>
+
+        <div class="admin-panel active" id="panel-apercu">
+          <h3>Bienvenue sur le tableau de bord</h3>
+          <p class="small">Ces données proviennent du Local Storage du navigateur. Lorsqu'une base de données sera connectée, ce tableau de bord affichera les données en temps réel via l'API, sans changement d'interface.</p>
+        </div>
+
+        <div class="admin-panel" id="panel-inscriptions">
+          <h3>Clients inscrits</h3>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="tableUsers"></table>
+          </div>
+        </div>
+
+        <div class="admin-panel" id="panel-commandes">
+          <h3>Commandes boutique</h3>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="tableOrders"></table>
+          </div>
+        </div>
+
+        <div class="admin-panel" id="panel-factures">
+          <h3>Factures</h3>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="tableInvoices"></table>
+          </div>
+        </div>
+
+        <div class="admin-panel" id="panel-demandes">
+          <h3>Demandes de service</h3>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="tableRequests"></table>
+          </div>
+        </div>
+
+        <div class="admin-panel" id="panel-messages">
+          <h3>Messages de contact</h3>
+          <div style="overflow-x:auto;">
+            <table class="data-table" id="tableMessages"></table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="site-footer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/components.js"></script>
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
