@@ -20,7 +20,6 @@ function initPasswordToggles() {
   });
 }
 
-/* ---------------- Inscription ---------------- */
 function passwordStrength(pwd) {
   let score = 0;
   if (pwd.length >= 8) score++;
@@ -28,7 +27,7 @@ function passwordStrength(pwd) {
   if (/[A-Z]/.test(pwd) && /[a-z]/.test(pwd)) score++;
   if (/[0-9]/.test(pwd)) score++;
   if (/[^A-Za-z0-9]/.test(pwd)) score++;
-  return Math.min(score, 4); // 0..4
+  return Math.min(score, 4);
 }
 
 function initSignup(form) {
@@ -36,7 +35,6 @@ function initSignup(form) {
   const pwdInput = document.getElementById('password');
   const confirmInput = document.getElementById('confirmPassword');
 
-  // Barre de robustesse
   const strengthBar = document.createElement('div');
   strengthBar.className = 'pwd-strength';
   strengthBar.innerHTML = '<div class="pwd-strength-bar"></div>';
@@ -66,7 +64,6 @@ function initSignup(form) {
     checkMatch();
   });
 
-  // Indicateur de correspondance en temps réel
   const matchIndicator = document.createElement('div');
   matchIndicator.className = 'match-indicator';
   confirmInput.closest('.form-group').appendChild(matchIndicator);
@@ -108,7 +105,6 @@ function initSignup(form) {
     };
     const ok = key => clearFieldError(fields[key], document.getElementById('err-' + key));
 
-    // 1. Aucun champ vide
     Object.keys(fields).forEach(key => {
       if (!Validators.notEmpty(fields[key].value)) fail(key, 'Ce champ est obligatoire.');
       else ok(key);
@@ -120,28 +116,23 @@ function initSignup(form) {
       return;
     }
 
-    // 2. Téléphone valide
     if (!Validators.isPhone(fields.telephone.value)) {
       fail('telephone', 'Numéro de téléphone invalide (ex : 6XXXXXXXX).');
     }
 
-    // 3. Email valide
     if (!Validators.isEmail(fields.email.value)) {
       fail('email', 'Adresse email invalide.');
     }
 
-    // 4. Doublons (email ou téléphone déjà utilisés)
     const existing = DB.findUserByEmailOrPhone(fields.email.value) || DB.findUserByEmailOrPhone(fields.telephone.value);
     if (existing) {
       fail('email', 'Un compte existe déjà avec cet email ou ce téléphone.');
     }
 
-    // 5. Mot de passe : au moins 8 caractères
     if (!Validators.isStrongPassword(fields.password.value)) {
       fail('password', 'Le mot de passe doit contenir au moins 8 caractères.');
     }
 
-    // 6. Les deux mots de passe doivent être identiques
     if (fields.password.value !== fields.confirmPassword.value) {
       fail('confirmPassword', 'Les mots de passe ne correspondent pas.');
     }
@@ -172,7 +163,6 @@ function initSignup(form) {
   });
 }
 
-/* ---------------- Connexion ---------------- */
 function initLogin(form) {
   const formError = document.getElementById('formError');
   const hintBanner = document.getElementById('authHint');

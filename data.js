@@ -1,11 +1,3 @@
-/* ==========================================================================
-   GENIUS ELECTRICAL SERVICE — Données & couche d'accès Local Storage
-   ⚠️ Toutes les fonctions ci-dessous sont volontairement isolées dans un
-   objet DB. Le jour où une vraie base de données existera, il suffira de
-   remplacer le corps de ces fonctions par des appels fetch() vers l'API :
-   le reste de l'interface (HTML/JS des pages) n'aura pas à changer.
-   ========================================================================== */
-
 const DB_KEYS = {
   USERS: 'ges_users',
   SESSION: 'ges_session',
@@ -47,13 +39,6 @@ const PRODUCTS_SEED = [
   { id: 'p12', ref: 'GES-ECL-001', name: 'Ampoule LED connectée', category: 'Éclairage intelligent', price: 9000, stock: 0 }
 ];
 
-const TESTIMONIALS = [
-  { name: 'Marie A.', role: 'Propriétaire, Douala', text: "Intervention rapide et travail impeccable pour la remise aux normes de ma maison. Je recommande.", stars: 5 },
-  { name: 'Jean-Paul K.', role: 'Gérant de boutique, Yaoundé', text: "L'équipe a installé nos caméras de surveillance en une journée, sérieux et ponctuel.", stars: 5 },
-  { name: 'Fatima N.', role: 'Particulier, Bafoussam', text: "Devis clair, prix honnête et panneaux solaires posés proprement. Très satisfaite.", stars: 4 }
-];
-
-/* ---------------- Helpers bas niveau ---------------- */
 function readLS(key, fallback) {
   try {
     const raw = localStorage.getItem(key);
@@ -69,7 +54,7 @@ function uid(prefix) {
   return prefix + '_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 }
 function simpleHash(str) {
-  // Obfuscation simple côté démo — à remplacer par un vrai hachage serveur (bcrypt, etc.)
+
   let hash = 0;
   for (let i = 0; i < str.length; i++) {
     hash = (hash << 5) - hash + str.charCodeAt(i);
@@ -78,7 +63,6 @@ function simpleHash(str) {
   return 'h' + Math.abs(hash) + '_' + str.length;
 }
 
-/* ---------------- Objet DB : point d'accès unique ---------------- */
 const DB = {
   seedIfNeeded() {
     if (readLS(DB_KEYS.SEEDED, false)) return;
@@ -91,11 +75,10 @@ const DB = {
     writeLS(DB_KEYS.CHAT_MESSAGES, []);
     writeLS(DB_KEYS.SEEDED, true);
   },
-  // ---- Produits (statiques pour la démo) ----
+
   getProducts() { return PRODUCTS_SEED; },
   getProduct(id) { return PRODUCTS_SEED.find(p => p.id === id); },
 
-  // ---- Utilisateurs / session ----
   getUsers() { return readLS(DB_KEYS.USERS, []); },
   saveUsers(list) { writeLS(DB_KEYS.USERS, list); },
   createUser(user) {
@@ -125,7 +108,6 @@ const DB = {
     return this.getUsers().find(u => u.id === id) || null;
   },
 
-  // ---- Panier ----
   getCart() { return readLS(DB_KEYS.CART, []); },
   saveCart(cart) { writeLS(DB_KEYS.CART, cart); this.updateCartBadge(); },
   addToCart(productId, qty) {
@@ -156,7 +138,6 @@ const DB = {
     document.querySelectorAll('.cart-badge').forEach(b => b.textContent = this.cartCount());
   },
 
-  // ---- Commandes ----
   getOrders() { return readLS(DB_KEYS.ORDERS, []); },
   nextOrderNumber() {
     const n = this.getOrders().length + 1;
@@ -171,7 +152,6 @@ const DB = {
   ordersForUser(userId) { return this.getOrders().filter(o => o.userId === userId); },
   getOrder(id) { return this.getOrders().find(o => o.id === id); },
 
-  // ---- Factures ----
   getInvoices() { return readLS(DB_KEYS.INVOICES, []); },
   nextInvoiceNumber() {
     const n = this.getInvoices().length + 1;
@@ -187,7 +167,6 @@ const DB = {
   getInvoiceByOrder(orderId) { return this.getInvoices().find(i => i.orderId === orderId); },
   invoicesForUser(userId) { return this.getInvoices().filter(i => i.userId === userId); },
 
-  // ---- Demandes de service ----
   getServiceRequests() { return readLS(DB_KEYS.SERVICE_REQUESTS, []); },
   createServiceRequest(req) {
     const list = this.getServiceRequests();
@@ -197,7 +176,6 @@ const DB = {
   },
   requestsForUser(userId) { return this.getServiceRequests().filter(r => r.userId === userId); },
 
-  // ---- Contact ----
   getContactMessages() { return readLS(DB_KEYS.CONTACT_MESSAGES, []); },
   createContactMessage(msg) {
     const list = this.getContactMessages();
@@ -206,7 +184,6 @@ const DB = {
     return msg;
   },
 
-  // ---- Chat assistance ----
   getChatMessages() { return readLS(DB_KEYS.CHAT_MESSAGES, []); },
   addChatMessage(msg) {
     const list = this.getChatMessages();

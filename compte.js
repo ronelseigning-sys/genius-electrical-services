@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  document.getElementById('welcomeTitle').textContent = `Bonjour, ${user.prenom} 👋`;
-
-  // Pré-remplir le profil
   document.getElementById('p-nom').value = user.nom;
   document.getElementById('p-prenom').value = user.prenom;
   document.getElementById('p-telephone').value = user.telephone;
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     banner.textContent = 'Vos informations ont été mises à jour.';
     banner.classList.add('show');
     notify('Profil mis à jour avec succès.', 'success');
-    document.getElementById('welcomeTitle').textContent = `Bonjour, ${document.getElementById('p-prenom').value.trim()} 👋`;
   });
 
   document.getElementById('logoutBtn').addEventListener('click', () => {
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => window.location.href = 'index.html', 400);
   });
 
-  // Onglets
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -54,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Historique des commandes
   const orders = DB.ordersForUser(user.id);
   const ordersHost = document.getElementById('ordersList');
   const statusLabel = { pending: 'En attente', confirmed: 'Confirmée', done: 'Livrée', cancelled: 'Annulée' };
@@ -75,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>`;
   }).join('') : `<div class="empty-state">${ICONS.cart}<p>Aucune commande pour le moment.</p><a href="boutique.html" class="btn btn-primary">Aller à la boutique</a></div>`;
 
-  // Mes factures
   const invoices = DB.invoicesForUser(user.id);
   const invoicesHost = document.getElementById('invoicesList');
   invoicesHost.innerHTML = invoices.length ? invoices.map(inv => `
@@ -92,7 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `).join('') : `<div class="empty-state">${ICONS.doc}<p>Aucune facture pour le moment.</p></div>`;
 
-  // Historique des demandes de service
   const requests = DB.requestsForUser(user.id);
   const reqHost = document.getElementById('requestsList');
   reqHost.innerHTML = requests.length ? requests.map(r => `

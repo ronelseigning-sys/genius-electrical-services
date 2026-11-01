@@ -4,85 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Genius Electrical Service — Électricité, solaire &amp; sécurité</title>
+<meta name="theme-color" content="#0A0A0A">
 <meta name="description" content="Installation, maintenance et dépannage électrique, énergie solaire, vidéosurveillance et éclairage intelligent. Devis gratuit.">
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Electrician","name":"Genius Electrical Service","email":"thegeniusservice@gmail.com","telephone":["+237672508196","+237673074387"],"address":{"@type":"PostalAddress","addressLocality":"Douala","addressCountry":"CM"},"description":"Installation, maintenance et dépannage électrique, énergie solaire, vidéosurveillance et éclairage intelligent."}</script>
 </head>
 <body>
 
 <div id="site-header"></div>
 
 <main>
-  <!-- HERO -->
+
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">⚡ Électricité générale &amp; énergie solaire</span>
-        <h1>L'électricité de votre maison, <span>entre de bonnes mains.</span></h1>
+        <h1>L'électricité de votre maison, entre de bonnes mains.</h1>
         <p class="lead">Installation, maintenance, dépannage d'urgence, énergie solaire et sécurité : Genius Electrical Service accompagne particuliers et entreprises avec des interventions rapides et un travail garanti.</p>
         <div class="hero-actions">
-          <a href="services.html" class="btn btn-primary">Découvrir nos services</a>
-          <a href="commande-service.html" class="btn btn-outline" style="color:#fff;">Commander maintenant</a>
-          <a href="assistance.html" class="btn btn-outline" style="color:#fff;">Contacter le service client</a>
+          <a href="services.html" class="btn btn-primary btn-arrow">Nos services</a>
+          <a href="contact.html" class="btn btn-outline-light">Nous contacter</a>
         </div>
+        <ul class="trust-row">
+          <li><span class="tick" data-i="check"></span>Devis gratuit</li>
+          <li><span class="tick" data-i="bolt"></span>Urgences 24h/24</li>
+          <li><span class="tick" data-i="shield"></span>Travail garanti</li>
+        </ul>
       </div>
       <div class="hero-visual">
-        <div class="hero-bolt-wrap">
-          <div class="hero-ring r1"></div>
-          <div class="hero-ring r2"></div>
-          <span class="hero-bolt" id="heroBolt"></span>
-        </div>
+        <img class="hero-photo" src="assets/hero.jpg" alt="Électricien vérifiant un tableau électrique">
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
   <section class="section">
+    <div class="container">
+      <div class="section-head center">
+        <h2>Nos services</h2>
+        <p>Des solutions électriques adaptées, fiables et sécurisées.</p>
+      </div>
+      <div class="grid grid-3" id="servicesPreview"></div>
+      <div class="text-center" style="margin-top:36px;">
+        <a href="services.html" class="btn btn-outline">Voir tous les services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-band">
     <div class="container">
       <div class="stats">
-        <div class="stat reveal"><div class="num" data-count="12">0</div><div class="label">Années d'expérience</div></div>
-        <div class="stat reveal"><div class="num" data-count="850">0</div><div class="label">Projets réalisés</div></div>
-        <div class="stat reveal"><div class="num" data-count="24">0</div><div class="label">Intervention d'urgence (h/24)</div></div>
-        <div class="stat reveal"><div class="num" data-count="98">0</div><div class="label">% clients satisfaits</div></div>
+        <div class="stat"><span class="num">24h/24</span><span class="label">Interventions d'urgence</span></div>
+        <div class="stat"><span class="num">Gratuit</span><span class="label">Devis</span></div>
+        <div class="stat"><span class="num">Douala</span><span class="label">Cameroun</span></div>
+        <div class="stat"><span class="tick" data-i="check"></span><span class="label">Travail garanti</span></div>
       </div>
     </div>
   </section>
 
-  <div class="container"><div class="current-line"></div></div>
-
-  <!-- SERVICES PREVIEW -->
   <section class="section">
     <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Nos expertises</span>
-        <h2>Un service électrique complet</h2>
-        <p>De l'installation à la sécurité, nous couvrons tous vos besoins électriques avec des équipes qualifiées.</p>
-      </div>
-      <div class="grid grid-4" id="servicesPreview"></div>
-      <div class="text-center" style="margin-top:36px;">
-        <a href="services.html" class="btn btn-dark">Voir tous les services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TÉMOIGNAGES -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">Avis clients</span>
-        <h2>Ce que disent nos clients</h2>
-      </div>
-      <div class="grid grid-3" id="testimonialsGrid"></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section">
-    <div class="container">
-      <div class="card" style="background:var(--navy-900);color:#fff;text-align:center;padding:56px 32px;border:none;">
-        <h2 style="color:#fff;">Un projet électrique en tête ?</h2>
-        <p style="color:#B9C4D2;max-width:520px;margin:0 auto 24px;">Demandez votre devis gratuit dès aujourd'hui et recevez une réponse sous 24h.</p>
-        <a href="commande-service.html" class="btn btn-primary">Demander un devis gratuit</a>
+      <div class="cta-panel">
+        <h2>Un projet électrique en tête ?</h2>
+        <p>Demandez votre devis gratuit ou posez-nous votre question directement : réponse rapide.</p>
+        <div class="cta-actions">
+          <a href="commande-service.html" class="btn btn-primary">Demander un devis gratuit</a>
+          <a href="#" class="btn btn-outline-light" id="ctaWa" target="_blank" rel="noopener">Discuter sur WhatsApp</a>
+          <a href="#" class="btn btn-outline-light" id="ctaMail" data-mail>Écrire par email</a>
+        </div>
+        <p class="cta-phones"><a href="tel:+237672508196">+237 672 508 196</a> · <a href="tel:+237673074387">+237 673 074 387</a></p>
       </div>
     </div>
   </section>
@@ -91,6 +80,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script src="js/home.js"></script>

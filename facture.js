@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <img src="assets/logo-light.png" alt="Genius Electrical Service" class="brand-logo">
           <div class="company-info">
             Douala, Akwa — Cameroun<br>
-            WhatsApp : +237 673 074 387<br>
+            Tél / WhatsApp : +237 672 508 196<br>
             Email : thegeniusservice@gmail.com
           </div>
         </div>
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div>
           <h4>Émetteur</h4>
           <p><strong>Genius Electrical Service</strong></p>
-          <p>WhatsApp : +237 673 074 387</p>
+          <p>+237 672 508 196</p>
           <p>thegeniusservice@gmail.com</p>
           <p>Akwa, Douala, Cameroun</p>
         </div>

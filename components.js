@@ -1,9 +1,3 @@
-/* ==========================================================================
-   Composants partagés : en-tête, pied de page, widget d'assistance,
-   bouton retour en haut, écran de chargement.
-   Injectés en JS pour éviter de dupliquer le HTML sur chaque page.
-   ========================================================================== */
-
 const ICONS = {
   bolt: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
   cart: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>',
@@ -52,7 +46,6 @@ function currentPage() {
   return p === '' ? 'index.html' : p;
 }
 
-/* Logo officiel : bascule automatique clair/sombre, jamais régénéré ni modifié */
 function currentLogoSrc() {
   const theme = document.documentElement.getAttribute('data-theme') || 'light';
   return theme === 'dark' ? 'assets/logo-dark.png' : 'assets/logo-light.png';
@@ -70,15 +63,15 @@ function renderHeader() {
 
   const navItems = [...NAV_ITEMS_BASE];
   if (user) {
-    navItems.push({ href: 'mon-compte.html', label: 'Mon compte' });
+    navItems.push({ href: 'mon-compte.html', label: 'Mon compte', mobileOnly: true });
   } else {
-    navItems.push({ href: 'connexion.html', label: 'Connexion' });
-    navItems.push({ href: 'inscription.html', label: 'Inscription' });
+    navItems.push({ href: 'connexion.html', label: 'Connexion', mobileOnly: true });
+    navItems.push({ href: 'inscription.html', label: 'Inscription', mobileOnly: true });
   }
-  navItems.push({ href: 'panier.html', label: 'Panier' });
+  navItems.push({ href: 'panier.html', label: 'Panier', mobileOnly: true });
 
   const links = navItems.map(item =>
-    `<a href="${item.href}" class="${page === item.href ? 'active' : ''}">${item.label}</a>`
+    `<a href="${item.href}" class="${page === item.href ? 'active' : ''}${item.mobileOnly ? ' mobile-only' : ''}">${item.label}</a>`
   ).join('');
 
   host.innerHTML = `
@@ -89,15 +82,11 @@ function renderHeader() {
         </a>
         <nav class="nav-links" id="navLinks">${links}</nav>
         <div class="nav-actions">
-          <form class="search-box" id="searchForm" role="search">
-            ${ICONS.search}
-            <input type="search" id="searchInput" placeholder="Rechercher un produit…" aria-label="Rechercher">
-          </form>
-          <button class="icon-btn" id="themeToggle" title="Changer de thème" aria-label="Changer de thème">${ICONS.moon}</button>
           <a class="icon-btn" href="${user ? 'mon-compte.html' : 'connexion.html'}" title="${user ? 'Mon compte' : 'Connexion'}" aria-label="Mon compte">${ICONS.user}</a>
           <a class="icon-btn" href="panier.html" title="Panier" aria-label="Panier">
             ${ICONS.cart}<span class="cart-badge">0</span>
           </a>
+          <a href="commande-service.html" class="btn btn-primary btn-sm nav-cta">Demander un devis</a>
           <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">${ICONS.menu}</button>
         </div>
       </div>
@@ -135,21 +124,21 @@ function renderFooter() {
             <h4>Client</h4>
             <a href="contact.html">Contact</a>
             <a href="assistance.html">Assistance</a>
-            <a href="https://wa.me/237673074387?text=${encodeURIComponent("Bonjour Genius Electrical Service, j'ai besoin d'une assistance.")}" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="${waUrl()}" target="_blank" rel="noopener">WhatsApp</a>
             <a href="conditions.html">Conditions d'utilisation</a>
             <a href="confidentialite.html">Politique de confidentialité</a>
           </div>
           <div>
             <h4>Contact</h4>
-            <a href="https://wa.me/237673074387" target="_blank" rel="noopener">WhatsApp : +237 673 074 387</a>
-            <a href="mailto:thegeniusservice@gmail.com">thegeniusservice@gmail.com</a>
+            ${SITE.phones.map(p => `<a href="tel:${p.e164}">${p.display}</a>`).join('')}
+            <a href="${mailtoUrl()}" data-mail>${SITE.email}</a>
             <a href="contact.html">Douala, Cameroun</a>
           </div>
         </div>
         <div class="current-line" style="margin:0 0 24px;"></div>
         <div class="footer-bottom">
           <span>© ${new Date().getFullYear()} Genius Electrical Service. Tous droits réservés.</span>
-          <span>Électricité · Solaire · Sécurité</span>
+          <span>Électricité, solaire et sécurité</span>
         </div>
       </div>
     </footer>
@@ -163,7 +152,8 @@ function renderSupportWidget() {
     <div class="support-fab" id="supportFab">
       <div class="support-menu" id="supportMenu">
         <button id="openChatBtn">${ICONS.chat} Discuter avec le service client</button>
-        <a href="https://wa.me/237673074387?text=${encodeURIComponent("Bonjour Genius Electrical Service, j'ai besoin d'une assistance.")}" target="_blank" rel="noopener">${ICONS.whatsapp} WhatsApp</a>
+        <a href="${waUrl()}" target="_blank" rel="noopener">${ICONS.whatsapp} Discuter sur WhatsApp</a>
+        <a href="${mailtoUrl()}" data-mail>${ICONS.mail} Écrire par email</a>
         <a href="contact.html">${ICONS.mail} Formulaire de contact</a>
       </div>
       <button class="fab-btn" id="fabBtn" aria-label="Assistance client">${ICONS.chat}</button>
@@ -197,9 +187,3 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSupportWidget();
   if (typeof initUI === 'function') initUI();
 });
-
-
-function openWhatsAppMessage(nom, email, sujet, message) {
-  const txt = `Bonjour Genius Electrical Service,\nNom : ${nom}\nEmail : ${email}\nSujet : ${sujet}\n\n${message}`;
-  window.open('https://wa.me/237673074387?text=' + encodeURIComponent(txt), '_blank', 'noopener');
-}

@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('chatIcon').innerHTML = ICONS.chat;
   document.getElementById('waIcon').innerHTML = ICONS.whatsapp;
+  document.getElementById('callIcon').innerHTML = ICONS.bolt;
 
-  const waMsg = encodeURIComponent("Bonjour Genius Electrical Service, j'ai besoin d'une assistance.");
-  document.getElementById('waLink').href = `https://wa.me/237673074387?text=${waMsg}`;
+  document.getElementById('waLink').href = waUrl();
+  const mailEl = document.getElementById('mailLink');
+  if (mailEl) mailEl.href = mailtoUrl();
 
   document.getElementById('startChatBtn').addEventListener('click', () => {
     document.getElementById('fabBtn')?.click();
@@ -38,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString()
     });
 
-    openWhatsAppMessage(nom.value.trim(), email.value.trim(), "Demande d'assistance", message.value.trim());
     form.reset();
     success.textContent = 'Votre demande a été envoyée à notre équipe. Nous vous répondrons rapidement.';
     success.classList.add('show');

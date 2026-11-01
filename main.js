@@ -1,8 +1,3 @@
-/* ==========================================================================
-   Comportements UI globaux + validateurs de formulaire partagés
-   ========================================================================== */
-
-/* ---------- Thème clair / sombre ---------- */
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   const btn = document.getElementById('themeToggle');
@@ -10,9 +5,7 @@ function applyTheme(theme) {
   if (typeof refreshLogos === 'function') refreshLogos();
 }
 function initTheme() {
-  const saved = localStorage.getItem(DB_KEYS.THEME) ||
-    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(saved);
+  applyTheme('dark');
   const btn = document.getElementById('themeToggle');
   if (btn) {
     btn.addEventListener('click', () => {
@@ -23,7 +16,6 @@ function initTheme() {
   }
 }
 
-/* ---------- Menu mobile ---------- */
 function initMobileNav() {
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
@@ -38,7 +30,6 @@ function initMobileNav() {
   }));
 }
 
-/* ---------- Recherche ---------- */
 function initSearch() {
   const form = document.getElementById('searchForm');
   if (!form) return;
@@ -49,7 +40,6 @@ function initSearch() {
   });
 }
 
-/* ---------- Retour en haut ---------- */
 function initBackTop() {
   const btn = document.getElementById('backTop');
   if (!btn) return;
@@ -59,7 +49,6 @@ function initBackTop() {
   btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
-/* ---------- Loader de page ---------- */
 function initLoader() {
   const loader = document.getElementById('page-loader');
   if (!loader) return;
@@ -68,7 +57,6 @@ function initLoader() {
   });
 }
 
-/* ---------- Animations au scroll ---------- */
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!items.length) return;
@@ -78,7 +66,6 @@ function initReveal() {
   items.forEach(el => obs.observe(el));
 }
 
-/* ---------- Widget assistance / chat ---------- */
 function initSupportWidget() {
   const fab = document.getElementById('fabBtn');
   const menu = document.getElementById('supportMenu');
@@ -95,7 +82,7 @@ function initSupportWidget() {
     chatWindow.classList.add('open');
     renderChatMessages();
     if (!DB.getChatMessages().length) {
-      DB.addChatMessage({ id: uid('msg'), sender: 'agent', text: "Bonjour 👋 Comment pouvons-nous vous aider aujourd'hui ?", date: new Date().toISOString() });
+      DB.addChatMessage({ id: uid('msg'), sender: 'agent', text: "Comment pouvons-nous vous aider aujourd'hui ?", date: new Date().toISOString() });
       renderChatMessages();
     }
   }
@@ -131,7 +118,6 @@ function initSupportWidget() {
   }
 }
 
-/* ---------- Notifications élégantes (toasts) ---------- */
 function ensureToastStack() {
   let stack = document.getElementById('toastStack');
   if (!stack) {
@@ -155,7 +141,6 @@ function notify(message, type = 'info', duration = 3800) {
   }, duration);
 }
 
-/* ---------- Utilitaires ---------- */
 function escapeHtml(str) {
   const d = document.createElement('div');
   d.textContent = str;
@@ -165,10 +150,9 @@ function formatFCFA(n) {
   return new Intl.NumberFormat('fr-FR').format(n) + ' FCFA';
 }
 
-/* ---------- Validateurs de formulaire (réutilisés partout) ---------- */
 const Validators = {
   isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); },
-  // Numéros camerounais : 9 chiffres commençant par 6, avec ou sans indicatif +237
+
   isPhone(v) {
     const cleaned = v.trim().replace(/[\s.-]/g, '');
     return /^(\+237)?6\d{8}$/.test(cleaned);
@@ -186,7 +170,6 @@ function clearFieldError(inputEl, errorEl) {
   if (errorEl) { errorEl.classList.remove('show'); errorEl.textContent = ''; }
 }
 
-/* ---------- Init global ---------- */
 function initUI() {
   initTheme();
   initMobileNav();

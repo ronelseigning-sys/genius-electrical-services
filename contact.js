@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const mhref = mailtoUrl();
+  ['contactMail','contactMailBtn'].forEach(id => { const el = document.getElementById(id); if (el) el.href = mhref; });
+  const cw = document.getElementById('contactWa'); if (cw) cw.href = waUrl();
   const form = document.getElementById('contactForm');
   if (!form) return;
   const success = document.getElementById('contactSuccess');
@@ -30,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
       date: new Date().toISOString()
     });
 
-    openWhatsAppMessage(nom.value.trim(), email.value.trim(), document.getElementById('c-sujet').value.trim() || 'Contact', message.value.trim());
     form.reset();
     success.textContent = 'Votre message a bien été envoyé. Nous vous répondrons rapidement.';
     success.classList.add('show');

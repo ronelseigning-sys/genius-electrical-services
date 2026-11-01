@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Facture — Genius Electrical Service</title>
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 
   <section class="section">
     <div class="container invoice-wrap" id="invoiceHost">
-      <!-- Injecté par js/facture.js -->
+
     </div>
     <div class="invoice-actions" id="invoiceActions" style="display:none;">
       <button class="btn btn-primary" id="printBtn">Imprimer / Enregistrer en PDF</button>
@@ -34,6 +34,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script src="js/facture.js"></script>

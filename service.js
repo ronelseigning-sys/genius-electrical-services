@@ -6,10 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const preselect = params.get('service');
   if (preselect) select.value = preselect;
 
-  // Date minimale = aujourd'hui
   document.getElementById('date').min = new Date().toISOString().split('T')[0];
 
-  // Pré-remplir avec les infos du compte si connecté
   const user = DB.getCurrentUser();
   if (user) {
     document.getElementById('adresse').value = `${user.adresse}, ${user.quartier}, ${user.ville}`;

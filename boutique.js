@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const searchForm = document.getElementById('shopSearch');
+  if (searchForm) {
+    const initial = new URLSearchParams(window.location.search).get('q') || '';
+    document.getElementById('shopSearchInput').value = initial;
+    searchForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const q = document.getElementById('shopSearchInput').value.trim();
+      window.location.href = 'boutique.html' + (q ? '?q=' + encodeURIComponent(q) : '');
+    });
+  }
   const products = DB.getProducts();
   const categories = ['Tous', ...new Set(products.map(p => p.category))];
   const chipsHost = document.getElementById('filterChips');

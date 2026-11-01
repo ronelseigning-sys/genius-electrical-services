@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>À propos — Genius Electrical Service</title>
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
 </head>
 <body>
 
@@ -30,7 +30,7 @@
           <p>Au fil des années, notre équipe s'est spécialisée dans la sécurité électrique, l'énergie renouvelable et les solutions connectées, tout en gardant une exigence constante : la sécurité et la satisfaction de nos clients.</p>
         </div>
         <div class="card reveal" style="padding:0;overflow:hidden;">
-          <div style="aspect-ratio:4/3;background:var(--navy-900);display:flex;align-items:center;justify-content:center;">
+          <div style="aspect-ratio:4/3;background:var(--ink-900);display:flex;align-items:center;justify-content:center;">
             <span style="width:70px;height:70px;color:var(--yellow);" id="aboutBolt"></span>
           </div>
         </div>
@@ -42,17 +42,17 @@
     <div class="container">
       <div class="grid grid-3">
         <div class="card reveal">
-          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="missionIcon"></div>
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="missionIcon"></div>
           <h3>Notre mission</h3>
           <p>Offrir à chaque client une électricité sûre, fiable et durable, avec un service rapide et transparent.</p>
         </div>
         <div class="card reveal">
-          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="visionIcon"></div>
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="visionIcon"></div>
           <h3>Notre vision</h3>
           <p>Devenir la référence régionale de l'installation électrique et des solutions d'énergie solaire.</p>
         </div>
         <div class="card reveal">
-          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="valuesIcon"></div>
+          <div class="icon" style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin-bottom:18px;" id="valuesIcon"></div>
           <h3>Nos valeurs</h3>
           <p>Sécurité, intégrité, ponctualité et amélioration continue guident chacune de nos interventions.</p>
         </div>
@@ -72,6 +72,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script>

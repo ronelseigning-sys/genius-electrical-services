@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Connexion — Genius Electrical Service</title>
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
 </head>
 <body>
 
@@ -39,7 +39,7 @@
           <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
         </form>
         <p class="small text-center" style="margin-top:18px;">
-          Pas encore de compte ? <a href="inscription.html" style="color:var(--navy-900);font-weight:600;">Créer un compte</a>
+          Pas encore de compte ? <a href="inscription.html" style="color:var(--ink-900);font-weight:600;">Créer un compte</a>
         </p>
       </div>
     </div>
@@ -49,6 +49,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script src="js/auth.js"></script>

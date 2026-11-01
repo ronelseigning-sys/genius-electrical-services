@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Boutique — Genius Electrical Service</title>
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
 </head>
 <body>
 
@@ -23,6 +23,10 @@
 
   <section class="section">
     <div class="container">
+      <form class="shop-search" id="shopSearch" role="search">
+        <input type="search" id="shopSearchInput" placeholder="Rechercher un produit" aria-label="Rechercher un produit">
+        <button type="submit" class="btn btn-primary">Rechercher</button>
+      </form>
       <div class="shop-toolbar">
         <div class="filter-chips" id="filterChips"></div>
         <div class="flex gap-12" style="align-items:center;">
@@ -43,6 +47,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script src="js/boutique.js"></script>

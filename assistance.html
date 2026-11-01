@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Assistance client — Genius Electrical Service</title>
 <link rel="stylesheet" href="css/style.css">
-<script>(function(){var t=localStorage.getItem("ges_theme")||(window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");document.documentElement.setAttribute("data-theme", t);})();</script>
+<script>(function(){var t=localStorage.getItem("ges_theme")||("dark");document.documentElement.setAttribute("data-theme", t);})();</script>
 </head>
 <body>
 
@@ -23,20 +23,30 @@
 
   <section class="section">
     <div class="container">
-      <div class="grid grid-2" style="margin-bottom:48px;">
+      <div class="grid grid-3" style="margin-bottom:48px;">
         <div class="card text-center reveal">
-          <div style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="chatIcon"></div>
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="chatIcon"></div>
           <h3>Discuter en direct</h3>
           <p>Posez votre question à notre service client via le chat en ligne.</p>
           <button class="btn btn-primary" id="startChatBtn">Démarrer une discussion</button>
         </div>
         <div class="card text-center reveal">
-          <div style="width:52px;height:52px;border-radius:12px;background:var(--navy-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="waIcon"></div>
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="waIcon"></div>
           <h3>WhatsApp</h3>
-          <p>Contactez-nous directement sur WhatsApp pour une réponse rapide.</p>
-          <a class="btn btn-dark" id="waLink" href="https://wa.me/237673074387?text=Bonjour%20Genius%20Electrical%20Service%2C%20j%27ai%20besoin%20d%27une%20assistance." target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+          <p>Ouvrez la discussion avec l'entreprise : votre première question est déjà écrite.</p>
+          <a class="btn btn-dark" id="waLink" target="_blank" rel="noopener">Ouvrir WhatsApp</a>
+          <p class="small" style="margin:14px 0 0;">Ou par email : <a id="mailLink" data-mail href="#" style="color:var(--yellow);font-weight:600;">thegeniusservice@gmail.com</a></p>
         </div>
-</div>
+        <div class="card text-center reveal">
+          <div style="width:52px;height:52px;border-radius:12px;background:var(--ink-900);color:var(--yellow);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;" id="callIcon"></div>
+          <h3>Nous appeler</h3>
+          <p>Joignez-nous par téléphone du lundi au samedi, 7h30–18h30.</p>
+          <div class="btn-stack">
+            <a class="btn btn-outline" href="tel:+237672508196">+237 672 508 196</a>
+            <a class="btn btn-outline" href="tel:+237673074387">+237 673 074 387</a>
+          </div>
+        </div>
+      </div>
 
       <div class="card" style="max-width:640px;margin:0 auto;">
         <h3>Envoyer une demande d'assistance</h3>
@@ -69,6 +79,7 @@
 <div id="site-footer"></div>
 
 <script src="js/data.js"></script>
+<script src="js/config.js"></script>
 <script src="js/components.js"></script>
 <script src="js/main.js"></script>
 <script src="js/assistance.js"></script>
